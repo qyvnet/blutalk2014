@@ -107,7 +107,44 @@
                         <li>Android is a good model to look at</li>
                         <li>You will need a good source of entropy</li>
                     </section>
-
+                    <section>
+                      <h2>Software Update</h2>
+                      <ul>
+                        <li>Device has to poll</li>
+                        <li>Need to Authenticate New Update</li>
+                        <li>Solution: Digitally Sign Update</li>
+                        <li>Problem: Protecting the Private Signing Key</li>
+                      </ul>
+                    </section>
+                    <section>
+                      <h2>Protecting the Key: FAIL</h2>
+                      <ul>
+                        <li>Most Software is stored in a VC Repository (Git, Mercurial...)</li>
+                        <li>Typically there is an automated or CI build server</li>
+                        <li>To get Signed Binaries, you need the private key</li>
+                        <li>So too many organizations put the signing key in the Repository</li>
+                        <li>“Three can keep a secret if two of them are dead!”<br/><blockquote> –Benjamin Franklin</blockquote></li>
+                        <li>Keys in Repositories *always* leak
+                          <ul>
+                            <li>Holy GitHub Batman!</li>
+                          </ul>
+                        </li>
+                        <li>Production Staff often are not security savy</li>
+                      </ul>
+                    </section>
+                    <section>
+                      <h2>Neat Trick from Bitcoin</h2>
+                      <ul>
+                        <li>Don’t embed public key in software</li>
+                        <li>Embed the hash (or two) of the public key</li>
+                        <li>Distribute the Public Key with the next signed update</li>
+                        <li>Update the Hashed Key to a new one when updating</li>
+                        <li>Attacker has to first reverse a hash before attacking the Public Key System</li>
+                      </ul>
+                    </section>
+                    <section>
+                      <p><font size="+14"><b>Questions?</b></font></p>
+                    </section>
 		  </div>
 		</div>
 
